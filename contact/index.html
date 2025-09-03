@@ -642,7 +642,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: var(--shadow-lg);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .floating-contact-btn:hover {
@@ -673,9 +673,14 @@
         }
 
         .floating-contact-btn:hover .number-display {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(-50%) translateX(-5px);
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(-50%) translateX(-5px) !important;
+        }
+        
+        /* Make sure the buttons are properly positioned */
+        .floating-contact-btn {
+            position: relative;
         }
 
         .number-svg {
