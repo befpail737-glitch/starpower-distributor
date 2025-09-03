@@ -317,6 +317,128 @@
         </div>
     </footer>
 
+    <!-- Floating Contact Buttons -->
+    <div style="position: fixed !important; right: 20px !important; top: 50% !important; transform: translateY(-50%) !important; z-index: 99999 !important; display: block !important;">
+        <!-- WeChat Contact -->
+        <div style="margin-bottom: 15px !important; display: flex !important; align-items: center !important; justify-content: flex-end !important;">
+            <div style="background-color: #07C160 !important; color: white !important; padding: 10px 15px !important; border-radius: 20px !important; font-size: 14px !important; font-weight: bold !important; margin-right: 10px !important; box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;">
+                微信: +86 186 1251 8271
+            </div>
+            <a href="#" onclick="copyWeChatNumber()" style="width: 50px !important; height: 50px !important; background-color: #07C160 !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; color: white !important; text-decoration: none !important; box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;">
+                💬
+            </a>
+        </div>
+        
+        <!-- WhatsApp Contact -->
+        <div style="display: flex !important; align-items: center !important; justify-content: flex-end !important;">
+            <div style="background-color: #25D366 !important; color: white !important; padding: 10px 15px !important; border-radius: 20px !important; font-size: 14px !important; font-weight: bold !important; margin-right: 10px !important; box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;">
+                WhatsApp: +86 150 1370 2378
+            </div>
+            <a href="https://wa.me/8615013702378" target="_blank" style="width: 50px !important; height: 50px !important; background-color: #25D366 !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; color: white !important; text-decoration: none !important; box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;">
+                📱
+            </a>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Copy WeChat number function
+        function copyWeChatNumber() {
+            copyToClipboard('+86 186 1251 8271');
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                showNotification('微信号码已复制到剪贴板！', 'success');
+            }, function(err) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showNotification('微信号码已复制到剪贴板！', 'success');
+                } catch (err) {
+                    showNotification('复制失败，请手动复制号码', 'error');
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // Show notification function
+        function showNotification(message, type) {
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => notification.remove());
+
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 0.5rem;
+                color: white;
+                font-weight: 500;
+                z-index: 9999;
+                animation: slideInRight 0.3s ease-out;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                background-color: ${type === 'success' ? '#10b981' : '#ef4444'};
+            `;
+
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Add hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('[style*="linear-gradient"]');
+            buttons.forEach(button => {
+                const tooltip = button.querySelector('div[style*="opacity: 0"]');
+                
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                    if (tooltip) {
+                        tooltip.style.opacity = '1';
+                        tooltip.style.visibility = 'visible';
+                        tooltip.style.transform = 'translateY(-50%) translateX(-5px)';
+                    }
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    if (tooltip) {
+                        tooltip.style.opacity = '0';
+                        tooltip.style.visibility = 'hidden';
+                        tooltip.style.transform = 'translateY(-50%) translateX(0)';
+                    }
+                });
+            });
+        });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
