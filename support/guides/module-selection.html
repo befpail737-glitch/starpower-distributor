@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Starpower Module Selection Guide | IGBT vs SiC vs IPM Technical Comparison - LiTong</title>
+    <meta name="description" content="Comprehensive technical guide for selecting optimal Starpower IGBT, SiC, and IPM modules. Compare voltage ratings, current capacity, switching frequency, thermal performance, and application-specific recommendations with detailed technical analysis.">
+    <meta name="keywords" content="Starpower module selection guide, IGBT vs SiC comparison, IPM module guide, power semiconductor selection, voltage rating selection, current rating guide, switching frequency optimization">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="canonical" href="https://www.starpower-distributor.com/support/guides/module-selection/">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 0.75rem;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .hero-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 0;
+            font-weight: 400;
+            max-width: 700px;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .guide-content {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin: 3rem 0 1.5rem 0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .parameter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .parameter-card {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .parameter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .parameter-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+
+        .table-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .spec-table th,
+        .spec-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .spec-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .spec-table tr:hover {
+            background: var(--gray-50);
+        }
+
+        .module-family {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .family-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: var(--border-radius);
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .application-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .application-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .application-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .decision-tree {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .decision-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 1.125rem;
+        }
+
+        .cta-section {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem;
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .sidebar-content {
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .guide-content {
+                padding: 1.5rem;
+            }
+
+            .parameter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .application-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Complete Starpower Module Selection Guide: Technical Comparison of IGBT, SiC, and IPM Modules",
+      "description": "Comprehensive technical guide for selecting optimal Starpower IGBT, SiC, and IPM modules with detailed parameter analysis, performance comparisons, and application-specific recommendations.",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. Michael Chen"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LiTong Electronics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "/images/logo.png"
+        }
+      },
+      "datePublished": "2025-08-20",
+      "dateModified": "2025-08-29"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightning-fill me-2" viewBox="0 0 16 16">
+                    <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"/>
+                </svg>
+                LiTong Starpower
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/products/">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/solutions/">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/support/">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/support/">Support</a></li>
+                <li class="breadcrumb-item"><a href="/support/guides/">Guides</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Module Selection</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-light text-primary mb-3 px-3 py-2">Technical Guide</span>
+                    <h1 class="hero-title">Complete Starpower Module Selection Guide</h1>
+                    <p class="hero-subtitle">Master the art of selecting optimal IGBT, SiC, and IPM modules with comprehensive technical analysis, performance comparisons, and application-specific recommendations.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <i class="fas fa-microchip" style="font-size: 8rem; opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <article class="guide-content">
+                        <div class="article-meta mb-4">
+                            <div class="d-flex align-items-center">
+                                <img src="/images/authors/dr-michael-chen.jpg" alt="Dr. Michael Chen" class="rounded-circle me-3" width="60" height="60">
+                                <div>
+                                    <h5 class="mb-1">Dr. Michael Chen, PhD</h5>
+                                    <p class="text-muted mb-0">Principal Applications Engineer • August 20, 2025 • 18 min read</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="lead">Selecting the optimal power semiconductor module is both an art and a science that requires deep understanding of electrical characteristics, thermal management, system requirements, and cost considerations. This comprehensive guide provides engineering professionals with the technical knowledge needed to make informed decisions when selecting Starpower modules for their applications.</p>
+
+                        <h2 class="section-title">Fundamental Selection Principles</h2>
+
+                        <p>The module selection process begins with a thorough understanding of your application's electrical, thermal, and mechanical requirements. Each parameter influences the others, creating an interconnected web of design considerations that must be carefully balanced.</p>
+
+                        <div class="parameter-grid">
+                            <div class="parameter-card">
+                                <div class="parameter-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h4>Voltage Rating (V<sub>CE</sub>/V<sub>DS</sub>)</h4>
+                                <p>Critical parameter determining maximum blocking voltage capability. Must exceed system bus voltage plus safety margins for transients and spikes. Common ratings: 600V, 1200V, 1700V, 3300V.</p>
+                            </div>
+
+                            <div class="parameter-card">
+                                <div class="parameter-icon">
+                                    <i class="fas fa-current"></i>
+                                </div>
+                                <h4>Current Rating (I<sub>C</sub>/I<sub>D</sub>)</h4>
+                                <p>Defines continuous and peak current handling capability. Consider RMS current, peak current, thermal derating, and overload conditions. Available from 10A to 1000A+.</p>
+                            </div>
+
+                            <div class="parameter-card">
+                                <div class="parameter-icon">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                                <h4>Switching Frequency</h4>
+                                <p>Determines maximum operating frequency and affects switching losses. IGBTs typically operate up to 50kHz, SiC MOSFETs excel above 50kHz for high-frequency applications.</p>
+                            </div>
+
+                            <div class="parameter-card">
+                                <div class="parameter-icon">
+                                    <i class="fas fa-thermometer-half"></i>
+                                </div>
+                                <h4>Thermal Performance</h4>
+                                <p>Junction temperature limits, thermal resistance, and cooling requirements. Critical for reliability and lifetime. Consider R<sub>thJC</sub>, T<sub>jmax</sub>, and cooling methods.</p>
+                            </div>
+
+                            <div class="parameter-card">
+                                <div class="parameter-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h4>Package & Integration</h4>
+                                <p>Physical dimensions, pin configuration, and integration features. Consider PCB layout constraints, mounting options, and protection features for IPM modules.</p>
+                            </div>
+
+                            <div class="parameter-card">
+                                <div class="parameter-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <h4>Cost Optimization</h4>
+                                <p>Balance performance requirements with cost constraints. Consider total system cost including cooling, magnetics, and control complexity.</p>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Starpower Module Technology Overview</h2>
+
+                        <div class="module-family">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="family-icon">
+                                        <i class="fas fa-industry"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h3>IGBT (Insulated Gate Bipolar Transistor) Modules</h3>
+                                    <p><strong>Technology:</strong> Bipolar junction transistor with MOSFET gate control</p>
+                                    <p><strong>Advantages:</strong> High current capability, robust short-circuit protection, excellent thermal cycling performance, cost-effective for moderate frequencies</p>
+                                    <p><strong>Applications:</strong> Industrial motor drives, UPS systems, welding equipment, renewable energy inverters</p>
+                                    <p><strong>Typical Frequency Range:</strong> DC to 50kHz</p>
+                                    <p><strong>Efficiency:</strong> 95-98% depending on operating conditions</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="module-family">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="family-icon">
+                                        <i class="fas fa-atom"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h3>SiC (Silicon Carbide) MOSFET Modules</h3>
+                                    <p><strong>Technology:</strong> Wide bandgap semiconductor with superior material properties</p>
+                                    <p><strong>Advantages:</strong> Ultra-low switching losses, high-temperature operation (up to 200°C), higher efficiency, reduced cooling requirements</p>
+                                    <p><strong>Applications:</strong> EV charging, solar inverters, high-frequency power supplies, aerospace systems</p>
+                                    <p><strong>Typical Frequency Range:</strong> 20kHz to 500kHz+</p>
+                                    <p><strong>Efficiency:</strong> 97-99.5% with optimized design</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="module-family">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="family-icon">
+                                        <i class="fas fa-puzzle-piece"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h3>IPM (Intelligent Power Module)</h3>
+                                    <p><strong>Technology:</strong> Integrated IGBT module with gate drivers and protection circuits</p>
+                                    <p><strong>Advantages:</strong> Simplified design, built-in protection features, reduced component count, faster time-to-market</p>
+                                    <p><strong>Applications:</strong> Home appliances, small industrial drives, HVAC systems, electric vehicle auxiliary systems</p>
+                                    <p><strong>Typical Frequency Range:</strong> DC to 20kHz</p>
+                                    <p><strong>Efficiency:</strong> 94-97% depending on application</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Detailed Performance Comparison</h2>
+
+                        <div class="comparison-table">
+                            <div class="table-header">
+                                <i class="fas fa-balance-scale me-2"></i> Technology Comparison Matrix
+                            </div>
+                            <table class="spec-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>IGBT Module</th>
+                                        <th>SiC MOSFET Module</th>
+                                        <th>IPM Module</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Switching Losses</strong></td>
+                                        <td>Moderate (E<sub>on</sub> + E<sub>off</sub> ~ 5-20mJ)</td>
+                                        <td>Very Low (E<sub>on</sub> + E<sub>off</sub> ~ 1-5mJ)</td>
+                                        <td>Moderate (integrated optimization)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Conduction Losses</strong></td>
+                                        <td>V<sub>CE(sat)</sub> ~ 1.5-3.0V</td>
+                                        <td>R<sub>DS(on)</sub> ~ 10-50mΩ</td>
+                                        <td>V<sub>CE(sat)</sub> ~ 1.8-3.5V</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Temperature Capability</strong></td>
+                                        <td>T<sub>jmax</sub> ~ 150-175°C</td>
+                                        <td>T<sub>jmax</sub> ~ 175-200°C</td>
+                                        <td>T<sub>jmax</sub> ~ 150°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Gate Drive Complexity</strong></td>
+                                        <td>Moderate (requires isolation)</td>
+                                        <td>Simple (standard MOSFET drive)</td>
+                                        <td>Integrated (no external drive needed)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Short-Circuit Capability</strong></td>
+                                        <td>Excellent (10μs typical)</td>
+                                        <td>Limited (requires external protection)</td>
+                                        <td>Good (integrated protection)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cost per kW</strong></td>
+                                        <td>$0.10-0.25</td>
+                                        <td>$0.30-0.80</td>
+                                        <td>$0.15-0.35</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Design Complexity</strong></td>
+                                        <td>Medium</td>
+                                        <td>Medium-High</td>
+                                        <td>Low</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2 class="section-title">Application-Specific Selection Guidelines</h2>
+
+                        <div class="application-examples">
+                            <div class="application-card">
+                                <div class="application-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <h4>Electric Vehicle Traction Inverter</h4>
+                                <p><strong>Power Range:</strong> 50-200kW</p>
+                                <p><strong>Recommended Technology:</strong> SiC MOSFET modules</p>
+                                <p><strong>Key Requirements:</strong> High efficiency, compact size, wide temperature range</p>
+                                <p><strong>Optimal Modules:</strong> GCM300M12K-M1 series for 300A capability</p>
+                                <p><strong>Design Considerations:</strong> Parallel operation for higher currents, advanced thermal management</p>
+                            </div>
+
+                            <div class="application-card">
+                                <div class="application-icon">
+                                    <i class="fas fa-solar-panel"></i>
+                                </div>
+                                <h4>Solar Inverter (Central/String)</h4>
+                                <p><strong>Power Range:</strong> 10-500kW</p>
+                                <p><strong>Recommended Technology:</strong> SiC MOSFET (high efficiency) or IGBT (cost-effective)</p>
+                                <p><strong>Key Requirements:</strong> Maximum efficiency, MPPT compatibility, grid compliance</p>
+                                <p><strong>Optimal Modules:</strong> GD75PIT120C5S for 75A IGBT or GCM200M12K for SiC</p>
+                                <p><strong>Design Considerations:</strong> Leakage current minimization, anti-islanding protection</p>
+                            </div>
+
+                            <div class="application-card">
+                                <div class="application-icon">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <h4>Industrial Motor Drive (VFD)</h4>
+                                <p><strong>Power Range:</strong> 1-500kW</p>
+                                <p><strong>Recommended Technology:</strong> IGBT modules with robust protection</p>
+                                <p><strong>Key Requirements:</strong> High reliability, motor protection, variable speed control</p>
+                                <p><strong>Optimal Modules:</strong> GD150PIT170C5S for 150A high-power applications</p>
+                                <p><strong>Design Considerations:</strong> dv/dt control, motor cable length limitations</p>
+                            </div>
+
+                            <div class="application-card">
+                                <div class="application-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h4>Home Appliance Motor Control</h4>
+                                <p><strong>Power Range:</strong> 0.5-5kW</p>
+                                <p><strong>Recommended Technology:</strong> IPM modules for simplified design</p>
+                                <p><strong>Key Requirements:</strong> Cost optimization, compact size, built-in protection</p>
+                                <p><strong>Optimal Modules:</strong> GD30LIF060C5S for 30A applications</p>
+                                <p><strong>Design Considerations:</strong> PCB integration, heat sink optimization</p>
+                            </div>
+
+                            <div class="application-card">
+                                <div class="application-icon">
+                                    <i class="fas fa-battery-half"></i>
+                                </div>
+                                <h4>UPS & Energy Storage</h4>
+                                <p><strong>Power Range:</strong> 1-100kW</p>
+                                <p><strong>Recommended Technology:</strong> IGBT modules for bidirectional operation</p>
+                                <p><strong>Key Requirements:</strong> Bidirectional power flow, high reliability, battery compatibility</p>
+                                <p><strong>Optimal Modules:</strong> GD100LIF060C5S for 100A bidirectional applications</p>
+                                <p><strong>Design Considerations:</strong> Battery management integration, efficiency optimization</p>
+                            </div>
+
+                            <div class="application-card">
+                                <div class="application-icon">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <h4>Wind Power Converter</h4>
+                                <p><strong>Power Range:</strong> 1-5MW</p>
+                                <p><strong>Recommended Technology:</strong> High-power IGBT modules</p>
+                                <p><strong>Key Requirements:</strong> Extreme reliability, variable speed operation, grid compliance</p>
+                                <p><strong>Optimal Modules:</strong> Custom high-current modules for MW-scale applications</p>
+                                <p><strong>Design Considerations:</strong> Modular design, redundant operation, advanced control algorithms</p>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Advanced Selection Methodology</h2>
+
+                        <h3 class="subsection-title">System-Level Analysis</h3>
+
+                        <p>Beyond individual module parameters, successful selection requires understanding the complete system context:</p>
+
+                        <ul>
+                            <li><strong>Power Topology:</strong> Single-phase vs. three-phase, full-bridge vs. half-bridge configurations</li>
+                            <li><strong>Control Strategy:</strong> PWM modulation schemes, current control methods, protection algorithms</li>
+                            <li><strong>Passive Components:</strong> Filter capacitor sizing, inductor selection, snubber requirements</li>
+                            <li><strong>Cooling System:</strong> Natural convection, forced air, liquid cooling, or phase-change cooling</li>
+                            <li><strong>EMC Considerations:</strong> EMI filtering, grounding strategies, cable shielding requirements</li>
+                        </ul>
+
+                        <h3 class="subsection-title">Decision Tree Methodology</h3>
+
+                        <div class="decision-tree">
+                            <div class="decision-placeholder">
+                                <div>
+                                    <i class="fas fa-project-diagram fa-3x text-muted mb-3"></i>
+                                    <h5>Module Selection Decision Tree</h5>
+                                    <p class="text-muted">Interactive flowchart for systematic module selection based on application requirements</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Design Optimization Strategies</h2>
+
+                        <h3 class="subsection-title">Loss Analysis and Optimization</h3>
+
+                        <p>Comprehensive loss analysis is crucial for optimizing system efficiency and thermal performance:</p>
+
+                        <h4>Conduction Losses</h4>
+                        <p>Calculated as P<sub>cond</sub> = I<sub>RMS</sub>² × R<sub>DS(on)</sub> for MOSFETs or V<sub>CE(sat)</sub> × I<sub>avg</sub> for IGBTs. Minimize through proper current sharing and temperature management.</p>
+
+                        <h4>Switching Losses</h4>
+                        <p>Include turn-on and turn-off losses: P<sub>sw</sub> = (E<sub>on</sub> + E<sub>off</sub>) × f<sub>sw</sub>. Critical for high-frequency applications where SiC provides significant advantages.</p>
+
+                        <h4>Gate Drive Losses</h4>
+                        <p>Power required to charge/discharge gate capacitance: P<sub>gate</sub> = Q<sub>g</sub> × V<sub>gs</sub> × f<sub>sw</sub>. Important consideration for multi-module systems.</p>
+
+                        <h3 class="subsection-title">Thermal Management Optimization</h3>
+
+                        <p>Effective thermal management ensures reliable operation and maximizes power density:</p>
+
+                        <ul>
+                            <li><strong>Junction Temperature Control:</strong> Maintain T<sub>j</sub> below maximum ratings through proper cooling</li>
+                            <li><strong>Thermal Resistance Optimization:</strong> Minimize R<sub>thJC</sub> through interface materials and mounting techniques</
+            
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Products</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/products/igbt-modules/gd10pja120l2s/" class="list-group-item list-group-item-action">GD10PJA120L2S (IGBT PIM)</a>
+                        <a href="/products/sic-modules/gcm300m12k-m1/" class="list-group-item list-group-item-action">GCM300M12K-M1 (SiC Module)</a>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Articles</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/support/application-notes/igbt-driver-best-practices/" class="list-group-item list-group-item-action">IGBT Gate Driver Best Practices</a>
+                        <a href="/support/troubleshooting/sic-module-issues/" class="list-group-item list-group-item-action">Troubleshooting SiC Module Applications</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tags</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary">IGBT</span>
+                            <span class="badge bg-secondary">SiC</span>
+                            <span class="badge bg-secondary">IPM</span>
+                            <span class="badge bg-secondary">Module Selection</span>
+                            <span class="badge bg-secondary">Power Electronics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Need Help with Module Selection?</h2>
+            <p class="lead mb-4">Contact our FAE team for personalized guidance on choosing the right Starpower modules for your project.</p>
+            <a href="/contact/" class="btn btn-light btn-lg">Contact Our FAEs Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>LiTong - Your Authorized Starpower Distributor</h3>
+                    <p>Providing genuine Starpower IGBT, SiC, MOSFET, and IPM modules with expert technical support and competitive pricing since 2015.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Products</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/products/igbt-modules/" class="text-white">IGBT Modules</a></li>
+                        <li><a href="/products/sic-modules/" class="text-white">SiC Modules</a></li>
+                        <li><a href="/products/ipm-modules/" class="text-white">IPM Modules</a></li>
+                        <li><a href="/products/mosfet-modules/" class="text-white">MOSFETs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Solutions</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/solutions/ev-charging/" class="text-white">EV Charging</a></li>
+                        <li><a href="/solutions/solar-inverters/" class="text-white">Solar Inverters</a></li>
+                        <li><a href="/solutions/industrial-control/" class="text-white">Industrial Control</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Support</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/support/guides/" class="text-white">Selection Guides</a></li>
+                        <li><a href="/support/application-notes/" class="text-white">Application Notes</a></li>
+                        <li><a href="/support/troubleshooting/" class="text-white">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h4>Company</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/about/" class="text-white">About Us</a></li>
+                        <li><a href="/news/" class="text-white">News</a></li>
+                        <li><a href="/contact/" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 LiTong Electronics Co., Ltd. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/privacy/" class="text-white me-3">Privacy Policy</a>
+                    <a href="/terms/" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGBT vs SiC: When to Choose Which Technology? | Selection Guide - LiTong</title>
+    <meta name="description" content="A detailed comparison of IGBT and SiC technologies to help you decide which is best for your specific power electronics application requirements.">
+    <meta name="keywords" content="IGBT vs SiC, power module technology, Starpower modules, switching frequency, efficiency comparison">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="canonical" href="https://www.starpower-distributor.com/support/guides/igbt-vs-sic/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "IGBT vs SiC: When to Choose Which Technology?",
+      "description": "A detailed comparison of IGBT and SiC technologies to help you decide which is best for your specific power electronics application requirements.",
+      "author": {
+        "@type": "Person",
+        "name": "Jane Smith"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LiTong Electronics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "/images/logo.png"
+        }
+      },
+      "datePublished": "2025-08-20"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightning-fill me-2" viewBox="0 0 16 16">
+                    <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"/>
+                </svg>
+                LiTong Starpower
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/products/">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/solutions/">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/support/">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/support/">Support</a></li>
+                <li class="breadcrumb-item"><a href="/support/guides/">Guides</a></li>
+                <li class="breadcrumb-item active" aria-current="page">IGBT vs SiC</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="detail-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <span class="badge bg-primary mb-2">Selection Guide</span>
+                    <h1>IGBT vs SiC: When to Choose Which Technology?</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <img src="/images/authors/jane-smith.jpg" alt="Jane Smith" class="rounded-circle me-3" width="50" height="50">
+                    <div>
+                        <strong>Jane Smith</strong>
+                        <div class="text-muted">Senior Field Application Engineer</div>
+                    </div>
+                </div>
+                
+                <img src="/cdn-cgi/image/width=800,quality=85,format=auto/images/support/igbt-vs-sic-guide-cover.webp" alt="IGBT vs SiC Technology Comparison" loading="lazy" class="product-image mb-4">
+                
+                <p>Selecting between IGBT and SiC technologies is a critical decision that significantly impacts your power electronics design's performance, efficiency, and cost. This guide provides a comprehensive comparison to help you choose the optimal technology for your specific application requirements.</p>
+                
+                <h3>Introduction</h3>
+                <p>Both IGBT (Insulated Gate Bipolar Transistor) and SiC (Silicon Carbide) MOSFET technologies have their unique strengths and optimal application domains. Understanding their fundamental differences and strengths will enable you to make an informed decision that maximizes your design's success.</p>
+                
+                <h3>Key Technology Differences</h3>
+                
+                <h4>Switching Characteristics</h4>
+                <p>SiC MOSFETs offer significantly faster switching speeds compared to IGBTs, with rise and fall times measured in nanoseconds versus microseconds for IGBTs. This enables operation at much higher frequencies, which translates to smaller magnetic components and higher power density.</p>
+                
+                <h4>Conduction Losses</h4>
+                <p>IGBTs exhibit lower conduction losses at high currents (typically above 100A) due to their voltage drop characteristics. SiC MOSFETs have resistive conduction losses that increase with current, but remain lower than IGBTs at moderate current levels.</p>
+                
+                <h4>Switching Losses</h4>
+                <p>SiC MOSFETs demonstrate dramatically lower switching losses, especially at high frequencies. This becomes the dominant factor in applications switching above 50kHz, where SiC technology provides clear efficiency advantages.</p>
+                
+                <h3>Application-Specific Recommendations</h3>
+                
+                <h4>Choose IGBT When:</h4>
+                <ul>
+                    <li>Operating frequency is below 50kHz</li>
+                    <li>High current applications (>200A)</li>
+                    <li>Cost is the primary concern</li>
+                    <li>Robust short-circuit capability is required</li>
+                    <li>Mature, well-understood technology is preferred</li>
+                </ul>
+                
+                <h4>Choose SiC When:</h4>
+                <ul>
+                    <li>Operating frequency exceeds 50kHz</li>
+                    <li>High efficiency is critical</li>
+                    <li>Compact design with high power density is required</li>
+                    <li>High-temperature operation is needed</li>
+                    <li>Long-term reliability in harsh environments is important</li>
+                </ul>
+                
+                <h3>Performance Comparison Table</h3>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>IGBT</th>
+                                <th>SiC MOSFET</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Switching Frequency</td>
+                                <td>Up to 50kHz</td>
+                                <td>50kHz to 1MHz+</td>
+                            </tr>
+                            <tr>
+                                <td>Conduction Losses</td>
+                                <td>Low at high current</td>
+                                <td>Low at moderate current</td>
+                            </tr>
+                            <tr>
+                                <td>Switching Losses</td>
+                                <td>High</td>
+                                <td>Very Low</td>
+                            </tr>
+                            <tr>
+                                <td>Thermal Performance</td>
+                                <td>Good</td>
+                                <td>Excellent</td>
+                            </tr>
+                            <tr>
+                                <td>Short-Circuit Capability</td>
+                                <td>Excellent</td>
+                                <td>Limited</td>
+                            </tr>
+                            <tr>
+                                <td>Cost</td>
+                                <td>Lower</td>
+                                <td>Higher</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Real-World Implementation Examples</h3>
+                
+                <h4>Solar Inverters</h4>
+                <p>For central inverters operating at 20-30kHz, IGBTs remain cost-effective. However, string inverters benefiting from higher efficiency and power density increasingly adopt SiC technology.</p>
+                
+                <h4>EV Chargers</h4>
+                <p>DC fast chargers universally use SiC MOSFETs to achieve the high switching frequencies necessary for compact, high-efficiency designs. SiC technology enables chargers to operate at 100kHz+ while maintaining exceptional efficiency.</p>
+                
+                <h4>Industrial Drives</h4>
+                <p>Low-power servo drives (<5kW) benefit from SiC's high-frequency capability, while high-power drives (>100kW) often use IGBTs for cost-effectiveness and robust short-circuit protection.</p>
+                
+                <h3>Conclusion</h3>
+                <p>The choice between IGBT and SiC technologies should be based on your specific application requirements, weighing factors such as switching frequency, efficiency targets, power level, cost constraints, and reliability needs. Both technologies offer distinct advantages in their optimal domains, and Starpower provides excellent modules in both technologies to support your design success.</p>
+                
+                <div class="alert alert-info mt-4">
+                    <h4>Need Help with Technology Selection?</h4>
+                    <p>Our FAE team provides expert guidance for your specific application requirements. Contact us for personalized recommendations based on your design parameters.</p>
+                    <a href="/contact/" class="btn btn-primary">Contact Our Experts</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Guides</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/support/guides/module-selection/" class="list-group-item list-group-item-action">Module Selection Guide</a>
+                        <a href="/support/guides/current-rating/" class="list-group-item list-group-item-action">Current Ratings Guide</a>
+                        <a href="/support/guides/thermal-design/" class="list-group-item list-group-item-action">Thermal Design Guide</a>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Products</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/products/igbt-modules/gd75pit120c5s/" class="list-group-item list-group-item-action">GD75PIT120C5S (IGBT)</a>
+                        <a href="/products/sic-modules/gcm300m12k-m1/" class="list-group-item list-group-item-action">GCM300M12K-M1 (SiC)</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tags</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary">IGBT</span>
+                            <span class="badge bg-secondary">SiC</span>
+                            <span class="badge bg-secondary">Technology Comparison</span>
+                            <span class="badge bg-secondary">Power Electronics</span>
+                            <span class="badge bg-secondary">Module Selection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Need Help Choosing Between Technologies?</h2>
+            <p class="lead mb-4">Contact our FAE team for personalized guidance on selecting the right technology for your project.</p>
+            <a href="/contact/" class="btn btn-light btn-lg">Contact Our FAEs Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>LiTong - Your Authorized Starpower Distributor</h3>
+                    <p>Providing genuine Starpower IGBT, SiC, MOSFET, and IPM modules with expert technical support and competitive pricing since 2015.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Products</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/products/igbt-modules/" class="text-white">IGBT Modules</a></li>
+                        <li><a href="/products/sic-modules/" class="text-white">SiC Modules</a></li>
+                        <li><a href="/products/ipm-modules/" class="text-white">IPM Modules</a></li>
+                        <li><a href="/products/mosfet-modules/" class="text-white">MOSFETs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Solutions</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/solutions/ev-charging/" class="text-white">EV Charging</a></li>
+                        <li><a href="/solutions/solar-inverters/" class="text-white">Solar Inverters</a></li>
+                        <li><a href="/solutions/industrial-control/" class="text-white">Industrial Control</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Support</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/support/guides/" class="text-white">Selection Guides</a></li>
+                        <li><a href="/support/application-notes/" class="text-white">Application Notes</a></li>
+                        <li><a href="/support/troubleshooting/" class="text-white">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h4>Company</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/about/" class="text-white">About Us</a></li>
+                        <li><a href="/news/" class="text-white">News</a></li>
+                        <li><a href="/contact/" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 LiTong Electronics Co., Ltd. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/privacy/" class="text-white me-3">Privacy Policy</a>
+                    <a href="/terms/" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

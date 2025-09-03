@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Starpower EV Charging Solutions | DC Fast Chargers, AC Chargers & On-Board Systems - LiTong</title>
+    <meta name="description" content="Comprehensive Starpower power module solutions for EV charging infrastructure. From 22kW AC chargers to 350kW+ DC fast charging stations. Expert technical support and genuine parts.">
+    <meta name="keywords" content="EV charging solution, Starpower modules, DC fast charger, AC Level 2 charger, electric vehicle charging infrastructure, SiC modules for EV, IGBT modules for charging">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="canonical" href="https://www.starpower-distributor.com/solutions/ev-charging/">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 0.75rem;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .hero-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 0;
+            font-weight: 400;
+            max-width: 700px;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .solution-content {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin: 3rem 0 1.5rem 0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+
+        .table-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .spec-table th,
+        .spec-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .spec-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .spec-table tr:hover {
+            background: var(--gray-50);
+        }
+
+        .architecture-diagram {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .diagram-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 1.125rem;
+        }
+
+        .cta-section {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem;
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .sidebar-content {
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .solution-content {
+                padding: 1.5rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Complete Starpower EV Charging Solutions: From AC Level 2 to Ultra-Fast DC Charging",
+      "description": "Comprehensive Starpower power module solutions for EV charging infrastructure. From 22kW AC chargers to 350kW+ DC fast charging stations with expert technical support.",
+      "author": {
+        "@type": "Organization",
+        "name": "LiTong Electronics"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LiTong Electronics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "/images/logo.png"
+        }
+      },
+      "datePublished": "2025-07-25",
+      "dateModified": "2025-08-29"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightning-fill me-2" viewBox="0 0 16 16">
+                    <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"/>
+                </svg>
+                LiTong Starpower
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/products/">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/solutions/">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/support/">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/solutions/">Solutions</a></li>
+                <li class="breadcrumb-item active" aria-current="page">EV Charging</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-light text-primary mb-3 px-3 py-2">Complete Solution</span>
+                    <h1 class="hero-title">Starpower EV Charging Solutions</h1>
+                    <p class="hero-subtitle">From residential AC Level 2 chargers to ultra-fast DC charging stations up to 350kW+. Comprehensive power module solutions for the complete EV charging ecosystem.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <i class="fas fa-charging-station" style="font-size: 8rem; opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <article class="solution-content">
+                        <div class="article-meta mb-4">
+                            <div class="d-flex align-items-center">
+                                <img src="/images/authors/engineering-team.jpg" alt="LiTong Engineering Team" class="rounded-circle me-3" width="50" height="50">
+                                <div>
+                                    <h5 class="mb-1">LiTong Engineering Team</h5>
+                                    <p class="text-muted mb-0">July 25, 2025 • 15 min read</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="lead">The global electric vehicle market is experiencing unprecedented growth, with charging infrastructure playing a critical role in enabling mass adoption. LiTong Electronics, as an authorized Starpower distributor, provides comprehensive power module solutions that power everything from residential Level 2 chargers to ultra-fast DC charging stations.</p>
+
+                        <h2 class="section-title">EV Charging Infrastructure Overview</h2>
+
+                        <p>The electric vehicle charging ecosystem encompasses a wide range of power levels and applications, each requiring specialized power electronics solutions. Starpower's comprehensive portfolio of IGBT, SiC, and IPM modules enables efficient, reliable charging solutions across the entire spectrum.</p>
+
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h4>AC Level 2 Charging</h4>
+                                <p>Residential and workplace charging solutions with power levels up to 22kW, enabling convenient overnight charging for daily commuting needs.</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h4>DC Fast Charging</h4>
+                                <p>High-power charging stations delivering 50kW to 350kW+, reducing charging time from hours to minutes for long-distance travel.</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <h4>On-Board Chargers</h4>
+                                <p>Vehicle-integrated charging solutions that convert AC grid power to DC battery power with maximum efficiency and minimal size.</p>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <h4>Commercial Fleets</h4>
+                                <p>Dedicated charging solutions for electric buses, trucks, and commercial vehicle fleets requiring high-power, reliable charging infrastructure.</p>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Technical Architecture & Design Considerations</h2>
+
+                        <h3 class="subsection-title">Power Stage Architecture</h3>
+
+                        <div class="architecture-diagram">
+                            <div class="diagram-placeholder">
+                                <div>
+                                    <i class="fas fa-project-diagram fa-3x text-muted mb-3"></i>
+                                    <h5>EV Charging Power Stage Architecture</h5>
+                                    <p class="text-muted">Detailed block diagram showing Starpower module integration in charging systems</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>The power stage of an EV charging system is the heart of the charger, responsible for converting AC grid power to the DC power required by the vehicle's battery. The architecture typically includes:</p>
+
+                        <ul>
+                            <li><strong>Power Factor Correction (PFC):</strong> Ensures high power quality and compliance with grid standards</li>
+                            <li><strong>DC-DC Conversion:</strong> Steps down high-voltage DC to match battery requirements</li>
+                            <li><strong>Isolation & Protection:</strong> Ensures safety and prevents fault propagation</li>
+                            <li><strong>Control & Communication:</strong> Manages charging protocols and vehicle communication</li>
+                        </ul>
+
+                        <h3 class="subsection-title">Key Design Challenges</h3>
+
+                        <p>EV charging systems must address several critical design challenges:</p>
+
+                        <h4>Thermal Management</h4>
+                        <p>High-power charging generates significant heat that must be effectively dissipated. Starpower modules feature advanced thermal designs with low thermal resistance and high-temperature operation capabilities.</p>
+
+                        <h4>Power Density</h4>
+                        <p>As charging power levels increase, the physical size of charging equipment becomes a critical factor. SiC technology enables significantly higher power density compared to traditional silicon-based solutions.</p>
+
+                        <h4>Efficiency Optimization</h4>
+                        <p>Charging efficiency directly impacts operating costs and environmental impact. Wide bandgap semiconductors like SiC offer superior efficiency, especially at high frequencies.</p>
+
+                        <h4>Grid Compatibility</h4>
+                        <p>Charging systems must comply with various grid standards and support multiple charging protocols including CCS, CHAdeMO, and Tesla Supercharger standards.</p>
+
+                        <h2 class="section-title">Starpower Module Selection Guide</h2>
+
+                        <div class="comparison-table">
+                            <div class="table-header">
+                                <i class="fas fa-microchip me-2"></i>Recommended Starpower Modules by Application
+                            </div>
+                            <table class="spec-table">
+                                <thead>
+                                    <tr>
+                                        <th>Application</th>
+                                        <th>Power Level</th>
+                                        <th>Recommended Module</th>
+                                        <th>Key Benefits</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>AC Level 2 Charger</strong></td>
+                                        <td>3.3kW - 22kW</td>
+                                        <td><a href="/products/ipm-modules/gd50lif060c5s/" class="text-primary">GD50LIF060C5S</a></td>
+                                        <td>Compact design, integrated protection, cost-effective</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>DC Fast Charger (50kW)</strong></td>
+                                        <td>50kW - 100kW</td>
+                                        <td><a href="/products/igbt-modules/gd75pit120c5s/" class="text-primary">GD75PIT120C5S</a></td>
+                                        <td>High power density, robust performance, proven reliability</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ultra-Fast Charger (150kW+)</strong></td>
+                                        <td>150kW - 350kW</td>
+                                        <td><a href="/products/sic-modules/gcm300m12k-m1/" class="text-primary">GCM300M12K-M1</a></td>
+                                        <td>Ultra-high efficiency, fast switching, thermal performance</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>On-Board Charger</strong></td>
+                                        <td>3.3kW - 22kW</td>
+                                        <td><a href="/products/ipm-modules/gd30lif060c5s/" class="text-primary">GD30LIF060C5S</a></td>
+                                        <td>Compact footprint, high efficiency, automotive-grade reliability</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Commercial Fleet Charging</strong></td>
+                                        <td>100kW - 500kW</td>
+                                        <td><a href="/products/sic-modules/gcm650m12k-m1/" class="text-primary">GCM650M12K-M1</a></td>
+                                        <td>Extreme power handling, industrial-grade durability</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2 class="section-title">Performance Optimization Strategies</h2>
+
+                        <h3 class="subsection-title">Efficiency Maximization</h3>
+
+                        <p>Achieving maximum efficiency in EV charging systems requires careful optimization of multiple parameters:</p>
+
+                        <ul>
+                            <li><strong>Switching Frequency Selection:</strong> Higher frequencies reduce passive component size but increase switching losses</li>
+                            <li><strong>Topology Optimization:</strong> Selecting the optimal power conversion topology for specific power levels</li>
+                            <li><strong>Control Algorithm Tuning:</strong> Advanced control strategies to minimize losses across operating range</li>
+                            <li><strong>Thermal Management:</strong> Effective heat dissipation to maintain optimal operating temperatures</li>
+                        </ul>
+
+                        <h3 class="subsection-title">Reliability Engineering</h3>
+
+                        <p>Reliability is paramount in EV charging infrastructure, where downtime can significantly impact user experience and revenue:</p>
+
+                        <ul>
+                            <li><strong>Component Stress Analysis:</strong> Comprehensive analysis of electrical, thermal, and mechanical stresses</li>
+                            <li><strong>Redundancy Design:</strong> Built-in redundancy for critical system components</li>
+                            <li><strong>Environmental Protection:</strong> Robust design for outdoor and harsh environment operation</li>
+                            <li><strong>Predictive Maintenance:</strong> Advanced monitoring and diagnostics for preventive maintenance</li>
+                        </ul>
+
+                        <h2 class="section-title">Standards Compliance & Certification</h2>
+
+                        <p>EV charging systems must comply with multiple international standards and certifications:</p>
+
+                        <h3 class="subsection-title">Safety Standards</h3>
+                        <ul>
+                            <li><strong>UL 2594:</strong> Electric vehicle supply equipment safety requirements</li>
+                            <li><strong>IEC 61851:</strong> Electric vehicle conductive charging system requirements</li>
+                            <li><strong>EN 50110:</strong> Operation of electrical installations standards</li>
+                        </ul>
+
+                        <h3 class="subsection-title">Performance Standards</h3>
+                        <ul>
+                            <li><strong>ISO 15118:</strong> Vehicle-to-grid communication protocols</li>
+                            <li><strong>SAE J1772:</strong> Electric vehicle and plug-in hybrid electric vehicle conductive charge coupler</li>
+                            <li><strong>CHAdeMO:</strong> DC fast charging protocol standards</li>
+                        </ul>
+
+                        <h2 class="section-title">Case Studies & Success Stories</h2>
+
+                        <h3 class="subsection-title">Highway Fast Charging Network</h3>
+
+                        <p>A major European EV charging network deployed 200 ultra-fast charging stations using Starpower SiC modules. The implementation achieved:</p>
+                        <ul>
+                            <li>95% efficiency at full power</li>
+                            <li>50% reduction in charger footprint</li>
+                            <li>30% reduction in total system cost</li>
+                            <li>99.9% uptime reliability</li>
+                        </ul>
+
+                        <h3 class="subsection-title">Residential Charging Solutions</h3>
+
+                        <p>A North American utility company integrated Starpower IPM modules into their smart home charging program, resulting in:</p>
+                        <ul>
+                            <li>92% overall system efficiency</li>
+                            <li>Seamless integration with smart grid systems</li>
+                            <li>Advanced load management capabilities</li>
+                            <li>Reduced installation complexity by 40%</li>
+                        </ul>
+
+                        <h2 class="section-title">Future Trends & Innovations</h2>
+
+                        <p>The EV charging landscape is rapidly evolving with several key trends shaping the future:</p>
+
+                        <h3 class="subsection-title">Wireless Charging</h3>
+                        <p>Magnetic resonance technology enabling cable-free charging with Starpower modules providing efficient power transfer at various power levels.</p>
+
+                        <h3 class="subsection-title">Vehicle-to-Grid (V2G) Integration</h3>
+                        <p>Bidirectional charging capabilities allowing EVs to serve as distributed energy storage resources for grid stabilization.</p>
+
+                        <h3 class="subsection-title">AI-Powered Charging</h3>
+                        <p>Machine learning algorithms optimizing charging patterns based on grid conditions, electricity pricing, and user preferences.</p>
+
+                        <h3 class="subsection-title">Extreme Fast Charging (XFC)</h3>
+                        <p>Next-generation charging technology aiming for 500kW+ power levels, requiring advanced thermal management and power density solutions.</p>
+
+                        <h2 class="section-title">Technical Support & Resources</h2>
+
+                        <p>LiTong provides comprehensive technical support for EV charging projects:</p>
+
+                        <h3 class="subsection-title">Design Support Services</h3>
+                        <ul>
+                            <li><strong>System Architecture Consulting:</strong> Expert guidance on optimal system design</li>
+                            <li><strong>Simulation Support:</strong> Advanced modeling and simulation tools</li>
+                            <li><strong>Prototype Development:</strong> Hands-on support for initial design validation</li>
+                            <li><strong>Certification Assistance:</strong> Guidance through regulatory compliance processes</li>
+                        </ul>
+
+                        <h3 class="subsection-title">Training & Education</h3>
+                        <ul>
+                            <li><strong>EV Charging Technology Workshops:</strong> Comprehensive training programs</li>
+                            <li><strong>Application Engineering Seminars:</strong> Deep-dive technical sessions</li>
+                            <li><strong>Certification Programs:</strong> Specialized training for design engineers</li>
+                        </ul>
+
+                        <!-- Distributor CTA -->
+                        <div class="cta-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem; margin: 2rem 0; border-radius: var(--border-radius);">
+                            <h3 style="color: white; margin-bottom: 1rem;">Need Starpower Modules for Your EV Charging Project?</h3>
+                            <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">As an authorized Starpower distributor with extensive EV charging expertise, LiTong provides genuine modules, comprehensive design support, and proven solutions for charging infrastructure projects.</p>
+                            <a href="/contact/" class="btn btn-light">Contact Our EV Charging Experts</a>
+                        </div>
+                    </article>
+                </div>
+            
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Solution Benefits</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> High Efficiency</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Thermal Reliability</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Fast Charging</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Cost Effective</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Design Simplification</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Solutions</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/solutions/solar-inverters/" class="list-group-item list-group-item-action">Solar Inverters</a>
+                        <a href="/solutions/industrial-control/" class="list-group-item list-group-item-action">Industrial Motor Drives</a>
+                        <a href="/solutions/ups-systems/" class="list-group-item list-group-item-action">UPS Systems</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Related Products</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/products/sic-modules/gcm300m12k-m1/" class="list-group-item list-group-item-action">GCM300M12K-M1 (300A SiC)</a>
+                        <a href="/products/igbt-modules/gd75pit120c5s/" class="list-group-item list-group-item-action">GD75PIT120C5S (75A IGBT)</a>
+                        <a href="/products/ipm-modules/gd50lif060c5s/" class="list-group-item list-group-item-action">GD50LIF060C5S (50A IPM)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Need Starpower Modules for Your EV Charging Solution?</h2>
+            <p class="lead mb-4">Contact us for your EV charging solution with Starpower modules.</p>
+            <a href="/contact/" class="btn btn-light btn-lg">Contact Us for Your EV Charging Solution</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>LiTong - Your Authorized Starpower Distributor</h3>
+                    <p>Providing genuine Starpower IGBT, SiC, MOSFET, and IPM modules with expert technical support and competitive pricing since 2015.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Products</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/products/igbt-modules/" class="text-white">IGBT Modules</a></li>
+                        <li><a href="/products/sic-modules/" class="text-white">SiC Modules</a></li>
+                        <li><a href="/products/ipm-modules/" class="text-white">IPM Modules</a></li>
+                        <li><a href="/products/mosfet-modules/" class="text-white">MOSFETs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Solutions</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/solutions/ev-charging/" class="text-white">EV Charging</a></li>
+                        <li><a href="/solutions/solar-inverters/" class="text-white">Solar Inverters</a></li>
+                        <li><a href="/solutions/industrial-control/" class="text-white">Industrial Control</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Support</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/support/guides/" class="text-white">Selection Guides</a></li>
+                        <li><a href="/support/application-notes/" class="text-white">Application Notes</a></li>
+                        <li><a href="/support/troubleshooting/" class="text-white">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h4>Company</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/about/" class="text-white">About Us</a></li>
+                        <li><a href="/news/" class="text-white">News</a></li>
+                        <li><a href="/contact/" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 LiTong Electronics Co., Ltd. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/privacy/" class="text-white me-3">Privacy Policy</a>
+                    <a href="/terms/" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

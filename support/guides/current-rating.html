@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Current Ratings: Continuous vs Peak vs Surge | Selection Guide - LiTong</title>
+    <meta name="description" content="Guide to interpreting different current ratings for Starpower power modules and selecting modules based on your application's specific current requirements.">
+    <meta name="keywords" content="current ratings, continuous current, peak current, surge current, Starpower modules, power electronics">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="canonical" href="https://www.starpower-distributor.com/support/guides/current-rating/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Understanding Current Ratings: Continuous vs Peak vs Surge",
+      "description": "Guide to interpreting different current ratings for Starpower power modules and selecting modules based on your application's specific current requirements.",
+      "author": {
+        "@type": "Person",
+        "name": "Robert Johnson"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LiTong Electronics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "/images/logo.png"
+        }
+      },
+      "datePublished": "2025-08-15"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightning-fill me-2" viewBox="0 0 16 16">
+                    <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"/>
+                </svg>
+                LiTong Starpower
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/products/">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/solutions/">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/support/">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/support/">Support</a></li>
+                <li class="breadcrumb-item"><a href="/support/guides/">Guides</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Current Ratings</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="detail-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <span class="badge bg-primary mb-2">Selection Guide</span>
+                    <h1>Understanding Current Ratings: Continuous vs Peak vs Surge</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <img src="/images/authors/robert-johnson.jpg" alt="Robert Johnson" class="rounded-circle me-3" width="50" height="50">
+                    <div>
+                        <strong>Robert Johnson</strong>
+                        <div class="text-muted">Principal Field Application Engineer</div>
+                    </div>
+                </div>
+                
+                <img src="/cdn-cgi/image/width=800,quality=85,format=auto/images/support/current-rating-guide-cover.webp" alt="Current Ratings Guide" loading="lazy" class="product-image mb-4">
+                
+                <p>Properly understanding and applying current ratings is fundamental to successful power module selection and reliable system operation. This guide explains the different types of current ratings and how to interpret them for optimal module selection.</p>
+                
+                <h3>Introduction</h3>
+                <p>Power module datasheets typically specify multiple current ratings, each serving a specific purpose in characterizing the module's capabilities. Misunderstanding these ratings can lead to either oversized, costly designs or undersized modules that fail prematurely. This guide clarifies these distinctions to enable confident module selection.</p>
+                
+                <h3>Types of Current Ratings</h3>
+                
+                <h4>Continuous Current Rating (IC)</h4>
+                <p>The continuous current rating represents the maximum RMS current the module can conduct indefinitely without exceeding its maximum junction temperature under specified thermal conditions. This is the most fundamental rating and forms the basis for comparing modules across manufacturers.</p>
+                
+                <p>Key considerations:</p>
+                <ul>
+                    <li>Specified at case temperature (TC) of 25°C or 80°C</li>
+                    <li>Assumes specified thermal resistance and ambient conditions</li>
+                    <li>Represents steady-state operation capability</li>
+                    <li>Most conservative rating but critical for continuous applications</li>
+                </ul>
+                
+                <h4>Peak Current Rating (IPM)</h4>
+                <p>The peak current rating specifies the maximum instantaneous current the module can handle for short durations (typically milliseconds) without damage. This rating accounts for the thermal mass of the silicon die and internal bond wires.</p>
+                
+                <p>Key considerations:</p>
+                <ul>
+                    <li>Duration typically 1ms to 10ms depending on module</li>
+                    <li>Can be 2-4× higher than continuous rating</li>
+                    <li>Accounts for pulsed nature of many applications</li>
+                    <li>Enables smaller modules for pulsed applications</li>
+                </ul>
+                
+                <h4>Surge Current Rating (ISM)</h4>
+                <p>The surge current rating defines the maximum current the module can withstand during fault conditions (short circuits, shoot-through) for very brief periods (microseconds). This rating validates the module's ruggedness and protection system adequacy.</p>
+                
+                <p>Key considerations:</p>
+                <ul>
+                    <li>Duration typically 1μs to 100μs</li>
+                    <li>Often 5-10× higher than continuous rating</li>
+                    <li>Critical for system protection design</li>
+                    <li>Validates short-circuit protection effectiveness</li>
+                </ul>
+                
+                <h3>Application-Specific Current Requirements</h3>
+                
+                <h4>Motor Drive Applications</h4>
+                <p>Motor drives typically have complex current waveforms with RMS, peak, and transient components. The fundamental frequency current determines continuous requirements, while switching harmonics and torque transients define peak needs.</p>
+                
+                <h4>Inverter Applications</h4>
+                <p>Solar and battery inverters operate with relatively steady-state currents, making continuous current rating the primary selection criterion. Peak ratings accommodate startup surges and fault conditions.</p>
+                
+                <h4>Welding Equipment</h4>
+                <p>Welding applications involve extremely high peak currents for very short durations, making peak current rating critical. These applications typically have low duty cycles, enabling much smaller modules than continuous equivalents.</p>
+                
+                <h3>Thermal Considerations</h3>
+                <p>All current ratings are temperature-dependent and assume specific thermal conditions:</p>
+                
+                <h4>Case Temperature Effects</h4>
+                <p>Modules rated at TC=25°C provide maximum current capability but require excellent thermal design. Those rated at TC=80°C or higher acknowledge realistic operating conditions but provide proportionally lower current capability.</p>
+                
+                <h4>Ambient Temperature Derating</h4>
+                <p>Actual ambient temperatures above 25°C require derating calculations to prevent overheating. Most modules provide derating curves showing current reduction as ambient temperature increases.</p>
+                
+                <h4>Cooling Method Impact</h4>
+                <p>Forced air, liquid cooling, or conduction cooling methods significantly affect achievable current ratings. Liquid-cooled modules typically achieve 2-3× higher current ratings than air-cooled equivalents.</p>
+                
+                <h3>Selection Process</h3>
+                
+                <h4>Step 1: Determine Application Requirements</h4>
+                <p>Analyze your waveform to determine RMS, peak, and fault current requirements. Consider worst-case operating conditions and safety margins.</p>
+                
+                <h4>Step 2: Apply Safety Margins</h4>
+                <p>Apply appropriate safety margins (typically 1.2-1.5×) to account for calculation uncertainties, aging effects, and unexpected operational demands.</p>
+                
+                <h4>Step 3: Match to Module Capabilities</h4>
+                <p>Select a module whose continuous rating meets or exceeds your calculated requirements, with adequate peak and surge capabilities for your application's transients.</p>
+                
+                <h4>Step 4: Verify Thermal Design</h4>
+                <p>Ensure your thermal design accommodates the selected module's requirements, including heatsinking, airflow, and thermal interface materials.</p>
+                
+                <h3>Common Mistakes to Avoid</h3>
+                
+                <h4>Confusing RMS with Peak</h4>
+                <p>Never select modules based solely on peak current requirements without considering RMS heating effects. This leads to modules that overheat during normal operation despite adequate peak capability.</p>
+                
+                <h4>Ignoring Duty Cycle</h4>
+                <p>Failing to account for application duty cycle can result in unnecessarily oversized modules. Many pulsed applications can use much smaller modules than continuous equivalents.</p>
+                
+                <h4>Neglecting Thermal Design</h4>
+                <p>Selecting modules without adequate thermal design consideration leads to premature failures regardless of proper current rating selection.</p>
+                
+                <h3>Starpower Specific Considerations</h3>
+                <p>Starpower modules provide several advantages in current rating applications:</p>
+                
+                <ul>
+                    <li><strong>Conservative Ratings:</strong> Starpower specifies current ratings conservatively, providing built-in reliability margins</li>
+                    <li><strong>Detailed Datasheets:</strong> Comprehensive datasheets include all relevant current ratings with clear definitions</li>
+                    <li><strong>Thermal Models:</strong> Advanced thermal models enable precise system-level thermal design</li>
+                    <li><strong>Application Support:</strong> Our FAE team provides detailed current rating guidance for specific applications</li>
+                </ul>
+                
+                <h3>Conclusion</h3>
+                <p>Properly understanding and applying current ratings ensures optimal module selection for reliable, cost-effective designs. By considering continuous, peak, and surge requirements in context with your specific application needs and thermal design capabilities, you can select the ideal Starpower module for your project.</p>
+                
+                <div class="alert alert-info mt-4">
+                    <h4>Need Help with Current Rating Selection?</h4>
+                    <p>Our FAE team provides expert guidance for your specific application requirements. Contact us for personalized recommendations based on your current waveform analysis.</p>
+                    <a href="/contact/" class="btn btn-primary">Contact Our Experts</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Guides</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/support/guides/module-selection/" class="list-group-item list-group-item-action">Module Selection Guide</a>
+                        <a href="/support/guides/igbt-vs-sic/" class="list-group-item list-group-item-action">IGBT vs SiC Guide</a>
+                        <a href="/support/guides/thermal-design/" class="list-group-item list-group-item-action">Thermal Design Guide</a>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Products</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/products/igbt-modules/gd150pit170c5s/" class="list-group-item list-group-item-action">GD150PIT170C5S (150A IGBT)</a>
+                        <a href="/products/sic-modules/gcm300m12k-m1/" class="list-group-item list-group-item-action">GCM300M12K-M1 (300A SiC)</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tags</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary">Current Ratings</span>
+                            <span class="badge bg-secondary">Continuous Current</span>
+                            <span class="badge bg-secondary">Peak Current</span>
+                            <span class="badge bg-secondary">Surge Current</span>
+                            <span class="badge bg-secondary">Thermal Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Need Help with Current Rating Analysis?</h2>
+            <p class="lead mb-4">Contact our FAE team for personalized guidance on selecting the right module based on your specific current requirements.</p>
+            <a href="/contact/" class="btn btn-light btn-lg">Contact Our FAEs Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>LiTong - Your Authorized Starpower Distributor</h3>
+                    <p>Providing genuine Starpower IGBT, SiC, MOSFET, and IPM modules with expert technical support and competitive pricing since 2015.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Products</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/products/igbt-modules/" class="text-white">IGBT Modules</a></li>
+                        <li><a href="/products/sic-modules/" class="text-white">SiC Modules</a></li>
+                        <li><a href="/products/ipm-modules/" class="text-white">IPM Modules</a></li>
+                        <li><a href="/products/mosfet-modules/" class="text-white">MOSFETs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Solutions</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/solutions/ev-charging/" class="text-white">EV Charging</a></li>
+                        <li><a href="/solutions/solar-inverters/" class="text-white">Solar Inverters</a></li>
+                        <li><a href="/solutions/industrial-control/" class="text-white">Industrial Control</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Support</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/support/guides/" class="text-white">Selection Guides</a></li>
+                        <li><a href="/support/application-notes/" class="text-white">Application Notes</a></li>
+                        <li><a href="/support/troubleshooting/" class="text-white">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h4>Company</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/about/" class="text-white">About Us</a></li>
+                        <li><a href="/news/" class="text-white">News</a></li>
+                        <li><a href="/contact/" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 LiTong Electronics Co., Ltd. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/privacy/" class="text-white me-3">Privacy Policy</a>
+                    <a href="/terms/" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

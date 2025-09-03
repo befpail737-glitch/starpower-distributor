@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting Common Issues in Starpower SiC Module Applications | Technical Guide - LiTong</title>
+    <meta name="description" content="Guide to troubleshooting common issues encountered when using Starpower SiC MOSFET modules, with practical solutions and diagnostic approaches.">
+    <meta name="keywords" content="SiC troubleshooting, Starpower SiC issues, MOSFET problems, switching issues, dv/dt problems">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="canonical" href="https://www.starpower-distributor.com/support/troubleshooting/sic-module-issues/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Troubleshooting Common Issues in Starpower SiC Module Applications",
+      "description": "Guide to troubleshooting common issues encountered when using Starpower SiC MOSFET modules, with practical solutions and diagnostic approaches.",
+      "author": {
+        "@type": "Person",
+        "name": "David Brown"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LiTong Electronics",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "/images/logo.png"
+        }
+      },
+      "datePublished": "2025-07-25"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightning-fill me-2" viewBox="0 0 16 16">
+                    <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"/>
+                </svg>
+                LiTong Starpower
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/products/">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/solutions/">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/support/">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/support/">Support</a></li>
+                <li class="breadcrumb-item"><a href="/support/troubleshooting/">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">SiC Module Issues</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="detail-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <span class="badge bg-secondary mb-2">Troubleshooting Guide</span>
+                    <h1>Troubleshooting Common Issues in Starpower SiC Module Applications</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <img src="/images/authors/david-brown.jpg" alt="David Brown" class="rounded-circle me-3" width="50" height="50">
+                    <div>
+                        <strong>David Brown</strong>
+                        <div class="text-muted">Senior Field Application Engineer</div>
+                    </div>
+                </div>
+                
+                <img src="/cdn-cgi/image/width=800,quality=85,format=auto/images/support/sic-troubleshooting-cover.webp" alt="Troubleshooting Starpower SiC Module Issues" loading="lazy" class="product-image mb-4">
+                
+                <p>Starpower SiC MOSFET modules offer exceptional performance advantages but require careful attention to application-specific considerations. This troubleshooting guide addresses common issues encountered in SiC implementations and provides practical solutions based on real-world experience.</p>
+                
+                <h3>Introduction</h3>
+                <p>SiC MOSFET technology provides significant advantages over traditional silicon solutions, including faster switching speeds, higher efficiency, and better thermal performance. However, these advantages come with specific requirements for gate drive, thermal management, and circuit layout that differ from silicon devices. Understanding these differences is key to successful SiC implementations.</p>
+                
+                <h3>Common SiC Implementation Issues</h3>
+                
+                <h4>1. Excessive dv/dt and False Turn-On</h4>
+                <p><strong>Symptoms:</strong> Uncontrolled switching, gate voltage spikes, intermittent operation</p>
+                
+                <p><strong>Cause:</strong> SiC MOSFETs have extremely fast switching speeds (often < 50ns), creating high dv/dt that can couple through parasitic capacitances to induce gate voltages sufficient for unintended turn-on.</p>
+                
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Implement Miller clamping circuits to prevent false turn-on during high dv/dt conditions</li>
+                    <li>Use negative gate bias (-4V to -8V) during turn-off to increase noise immunity</li>
+                    <li>Minimize gate loop inductance through careful PCB layout</li>
+                    <li>Add small capacitor (10-100pF) between gate and source near the module for additional filtering</li>
+                    <li>Consider gate resistor splitting (separate turn-on and turn-off resistors)</li>
+                </ul>
+                
+                <h4>2. Gate Drive Ringing and Oscillation</h4>
+                <p><strong>Symptoms:</strong> Oscillatory gate waveforms, extended switching times, EMI issues</p>
+                
+                <p><strong>Cause:</strong> Interaction between gate drive circuit inductance and module input capacitance creates resonant circuits that ring at high frequencies.</p>
+                
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Place gate resistors as close as possible to module terminals</li>
+                    <li>Use wide, short PCB traces for gate connections</li>
+                    <li>Add small resistor (1-10Ω) in series with gate driver output</li>
+                    <li>Implement RC snubber networks across gate-source if necessary</li>
+                    <li>Ensure adequate gate driver current capability for fast switching</li>
+                </ul>
+                
+                <h4>3. Excessive Switching Losses</h4>
+                <p><strong>Symptoms:</strong> Higher than expected temperatures, reduced efficiency, thermal stress</p>
+                
+                <p><strong>Cause:</strong> Despite SiC's inherently low switching losses, poor design can still result in excessive losses through suboptimal gate drive, inadequate dead time, or poor layout.</p>
+                
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Optimize gate drive voltage levels (+18V/-4V typically optimal)</li>
+                    <li>Adjust gate resistors for optimal switching speed vs. EMI trade-off</li>
+                    <li>Implement appropriate dead time to prevent shoot-through</li>
+                    <li>Minimize stray inductance in power loop paths</li>
+                    <li>Use soft-switching techniques where applicable</li>
+                </ul>
+                
+                <h4>4. Thermal Performance Issues</h4>
+                <p><strong>Symptoms:</strong> Elevated case temperatures, reduced lifetime, thermal shutdown events</p>
+                
+                <p><strong>Cause:</strong> Although SiC handles higher temperatures better than silicon, inadequate thermal design still leads to performance degradation and reliability issues.</p>
+                
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Verify adequate heatsink thermal resistance for application power levels</li>
+                    <li>Ensure proper thermal interface material application and pressure</li>
+                    <li>Consider forced air or liquid cooling for high-power applications</li>
+                    <li>Implement temperature monitoring and thermal protection</li>
+                    <li>Account for thermal cycling effects in long-term reliability</li>
+                </ul>
+                
+                <h4>5. Electromagnetic Interference (EMI)</h4>
+                <p><strong>Symptoms:</strong> Radiated/conducted emissions exceeding limits, system noise, communication interference</p>
+                
+                <p><strong>Cause:</strong> SiC's fast switching speeds generate high-frequency harmonics that can exceed EMC limits if not properly managed.</p>
+                
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Control switching speeds with appropriate gate resistance</li>
+                    <li>Implement proper PCB layout with minimized loop areas</li>
+                    <li>Use shielded gate drive transformers where isolation is required</li>
+                    <li>Add common-mode chokes and filtering on input/output lines</li>
+                    <li>Implement proper grounding and shielding techniques</li>
+                </ul>
+                
+                <h3>Diagnostic Approaches</h3>
+                
+                <h4>Oscilloscope Measurements</h4>
+                <p>Proper measurement techniques are essential for accurate diagnosis:</p>
+                
+                <ul>
+                    <li>Use 10× probes for gate voltage measurements to minimize loading</li>
+                    <li>Employ proper grounding techniques to avoid ground loops</li>
+                    <li>Measure at module terminals, not remote controller outputs</li>
+                    <li>Use high-bandwidth probes for accurate dv/dt measurements</li>
+                </ul>
+                
+                <h4>Thermal Imaging</h4>
+                <p>Infrared thermography helps identify thermal bottlenecks:</p>
+                
+                <ul>
+                    <li>Scan module case and heatsink surfaces for hot spots</li>
+                    <li>Compare measurements with calculated thermal budgets</li>
+                    <li>Monitor temperature variations with load conditions</li>
+                    <li>Identify air flow restrictions or blocked cooling paths</li>
+                </ul>
+                
+                <h4>Impedance Measurements</h4>
+                <p>Measure circuit impedances to identify parasitic effects:</p>
+                
+                <ul>
+                    <li>Use LCR meters to measure gate loop inductance</li>
+                    <li>Measure thermal resistance from junction to ambient</li>
+                    <li>Characterize parasitic capacitances that affect switching</li>
+                </ul>
+                
+                <h3>Preventive Measures</h3>
+                
+                <h4>Design Reviews</h4>
+                <p>Early design validation prevents many issues:</p>
+                
+                <ul>
+                    <li>Review gate drive circuit designs before implementation</li>
+                    <li>Validate thermal design with calculations and simulation</li>
+                    <li>Check PCB layout for parasitic minimization</li>
+                    <li>Review EMC filtering and shielding approaches</li>
+                </ul>
+                
+                <h4>Prototyping and Testing</h4>
+                <p>Thorough testing identifies potential problems:</p>
+                
+                <ul>
+                    <li>Test switching waveforms under various load conditions</li>
+                    <li>Validate thermal performance with representative loads</li>
+                    <li>Conduct EMC testing early in development</li>
+                    <li>Perform accelerated life testing for reliability validation</li>
+                </ul>
+                
+                <h3>Starpower SiC Specific Considerations</h3>
+                
+                <h4>Gate Oxide Reliability</h4>
+                <p>Starpower SiC modules are designed for robust gate oxide reliability:</p>
+                
+                <ul>
+                    <li>Gate oxide rated for 20V operation with adequate margins</li>
+                    <li>Robust design handles manufacturing and application variations</li>
+                    <li>Still requires proper gate drive to maximize lifetime</li>
+                </ul>
+                
+                <h4>Package Innovations</h4>
+                <p>Advanced packaging minimizes common implementation issues:</p>
+                
+                <ul>
+                    <li>Low-inductance package design reduces stray inductance</li>
+                    <li>Enhanced thermal path improves heat dissipation</li>
+                    <li>Standardized footprint simplifies replacement designs</li>
+                </ul>
+                
+                <h3>Conclusion</h3>
+                <p>Successful SiC implementation requires attention to the unique characteristics of wide bandgap semiconductors. By understanding potential issues and implementing appropriate design practices, you can achieve the full benefits of Starpower SiC technology while avoiding common pitfalls.</p>
+                
+                <div class="alert alert-info mt-4">
+                    <h4>Need Help with SiC Implementation?</h4>
+                    <p>Our FAE team provides expert guidance for your specific SiC application requirements. Contact us for personalized recommendations and design review services.</p>
+                    <a href="/contact/" class="btn btn-primary">Contact Our FAEs</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Troubleshooting Guides</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/support/troubleshooting/igbt-faults/" class="list-group-item list-group-item-action">Diagnosing IGBT Fault Conditions</a>
+                        <a href="/support/troubleshooting/ipm-protection/" class="list-group-item list-group-item-action">IPM Protection Faults</a>
+                        <a href="/support/troubleshooting/thermal-issues/" class="list-group-item list-group-item-action">Thermal Performance Issues</a>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>Related Products</h3>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/products/sic-modules/gcm300m12k-m1/" class="list-group-item list-group-item-action">GCM300M12K-M1 (300A SiC)</a>
+                        <a href="/products/sic-modules/gcm650m12k/" class="list-group-item list-group-item-action">GCM650M12K (650A SiC)</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tags</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary">SiC MOSFET</span>
+                            <span class="badge bg-secondary">Troubleshooting</span>
+                            <span class="badge bg-secondary">dv/dt Issues</span>
+                            <span class="badge bg-secondary">Gate Drive</span>
+                            <span class="badge bg-secondary">EMI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Facing SiC Implementation Challenges?</h2>
+            <p class="lead mb-4">Contact our FAE team for personalized guidance on troubleshooting your specific SiC module issues.</p>
+            <a href="/contact/" class="btn btn-light btn-lg">Contact Our FAEs Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>LiTong - Your Authorized Starpower Distributor</h3>
+                    <p>Providing genuine Starpower IGBT, SiC, MOSFET, and IPM modules with expert technical support and competitive pricing since 2015.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Products</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/products/igbt-modules/" class="text-white">IGBT Modules</a></li>
+                        <li><a href="/products/sic-modules/" class="text-white">SiC Modules</a></li>
+                        <li><a href="/products/ipm-modules/" class="text-white">IPM Modules</a></li>
+                        <li><a href="/products/mosfet-modules/" class="text-white">MOSFETs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Solutions</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/solutions/ev-charging/" class="text-white">EV Charging</a></li>
+                        <li><a href="/solutions/solar-inverters/" class="text-white">Solar Inverters</a></li>
+                        <li><a href="/solutions/industrial-control/" class="text-white">Industrial Control</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4>Support</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/support/guides/" class="text-white">Selection Guides</a></li>
+                        <li><a href="/support/application-notes/" class="text-white">Application Notes</a></li>
+                        <li><a href="/support/troubleshooting/" class="text-white">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h4>Company</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/about/" class="text-white">About Us</a></li>
+                        <li><a href="/news/" class="text-white">News</a></li>
+                        <li><a href="/contact/" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 LiTong Electronics Co., Ltd. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="/privacy/" class="text-white me-3">Privacy Policy</a>
+                    <a href="/terms/" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
